@@ -1,12 +1,20 @@
 <link rel="import" href="../../polymer/polymer.html">
-<dom-module id="px-data-table">
+<dom-module id="px-data-table-demo">
   <template>
     <style></style>
-    <h1>this is px data table</h1>
+    <h1>this is px data table demo</h1>
+    <px-data-table table-data="{{data}}">
+        <px-data-table-column name="index"></px-data-table-column>
+        <px-data-table-column name="name"></px-data-table-column>
+        <px-data-table-column name="id"></px-data-table-column>
+        <px-data-table-column name="actions"></px-data-table-column>
+        
+        
+    </px-data-table>
   </template>  
   <script>
       Polymer({
-        is: 'px-data-table',
+        is: 'px-data-table-demo',
         properties: {
           data: [
               {
