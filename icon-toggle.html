@@ -12,11 +12,11 @@
         display: inline-block;
       }
       iron-icon {
-        fill: rgba(0,0,0,0);
-        stroke: currentcolor;
+        fill: var(--icon-toggle-color, rgba(0,0,0,0));
+        stroke: var(--icon-toggle-outline-color, currentcolor);
       }
       :host([pressed]) iron-icon {
-        fill: currentcolor;
+        fill: var(--icon-toggle-pressed-color, currentcolor);
       }
     </style>
 
@@ -30,14 +30,21 @@
   Polymer({
     is: 'icon-toggle',
     properties: {
-      toggleIcon: String
-    },
-    pressed: {
+      toggleIcon: String,
+      pressed: {
         type: Boolean,
         value: false,
         notify: true,
         reflectToAttribute: true
       }
+    },
+    listeners: {
+      'tap': 'toggle'
+    },
+    toggle: function() {
+      debugger;
+      this.pressed = !this.pressed;
+    },
   });
   </script>
 
