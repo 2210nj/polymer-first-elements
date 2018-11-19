@@ -3,34 +3,39 @@
   <template>
     <style></style>
     <h1>this is px data table demo</h1>
-    <px-data-table table-data="{{data}}">
-        <px-data-table-column name="index"></px-data-table-column>
-        <px-data-table-column name="name"></px-data-table-column>
-        <px-data-table-column name="id"></px-data-table-column>
-        <px-data-table-column name="actions"></px-data-table-column>
-        
-        
-    </px-data-table>
+      <!-- <px-data-table table-data='[{"first":"Hopkins","last":"Wong","email":"hopkinswong@hotmail.com"},
+      {"first":"Joe","last":"Sherman","email":"joejoe@yahoo.com"}]' 
+      language="en"> -->
+
+      <px-data-table table-data={{data}}>
+        <px-data-table-column name='first'sortable editable filterable></px-data-table-column>
+      </px-data-table>
+    <span>{{data}}</span>
+    <span>{{data.length}}</span>
   </template>  
   <script>
       Polymer({
         is: 'px-data-table-demo',
         properties: {
-          data: [
-              {
-              "index": 0,
-              "name": "Liz Grimes",
-              "id": "001"
-              },
-              {
-              "index": 1,
-              "name": "Frazier Lara",
-              "id": "002"
+          data: {
+              type: Array,
+              value: function() {
+                return [
+                  {"first":"Valentine","last":"Meyer","email":"valentinemeyer@scentric.com"},
+                  {"first":"Silva","last":"Alexander","email":"silvaalexander@gmail.com"}
+                ];
               }
-          ]
+            } 
         },
         xyz: function() {
         },
+        ready: function() {
+          console.log('ready!');
+        },
+        attached: function() {
+          console.log('attached!');
+          console.log(this.data);
+        }
       });
       </script> 
 </dom-module>
